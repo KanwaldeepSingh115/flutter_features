@@ -1,10 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_practice/BLOC/auth_ui.dart';
-import 'package:flutter_practice/google_maps/geomaps_crud_rtdb.dart';
+import 'package:flutter_practice/BLOC/bloc.dart';
+import 'package:flutter_practice/BLOC/events.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -211,7 +213,10 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: AuthUi(),
+      home: BlocProvider(
+        create: (_) => AuthBloc()..add(AppStarted()),
+        child: AuthUi(),
+      ),
     );
   }
 }
