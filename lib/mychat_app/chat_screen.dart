@@ -63,8 +63,9 @@ class _ChatScreenState extends State<ChatScreen> {
                       .orderBy("timestamp")
                       .snapshots(),
               builder: (context, snapshot) {
-                if (!snapshot.hasData)
+                if (!snapshot.hasData) {
                   return const Center(child: CircularProgressIndicator());
+                }
                 final docs = snapshot.data!.docs.where(
                   (doc) =>
                       (doc['senderId'] == uid &&
