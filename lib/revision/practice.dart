@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_practice/crud_data.dart';
+import 'package:flutter_practice/revision/crud_data.dart';
 
 class Practice extends StatefulWidget {
   const Practice({super.key});

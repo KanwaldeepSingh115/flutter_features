@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_practice/API/get.dart';
+import 'package:flutter_practice/API/post.dart';
 import 'package:flutter_practice/BLOC/auth_ui.dart';
 import 'package:flutter_practice/BLOC/bloc.dart';
 import 'package:flutter_practice/BLOC/events.dart';
@@ -213,10 +215,11 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: BlocProvider(
-        create: (_) => AuthBloc()..add(AppStarted()),
-        child: AuthUi(),
-      ),
+      // home: BlocProvider(
+      //   create: (_) => AuthBloc()..add(AppStarted()),
+      //   child: AuthUi(),
+      // ),
+      home: ReqResPostDemo(),
     );
   }
 }
