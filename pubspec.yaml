@@ -59,6 +59,8 @@ dependencies:
   geolocator: ^14.0.2
   google_maps_flutter: ^2.12.3
   flutter_bloc: ^9.1.1
+  audio_service: ^0.18.18
+  sqflite_common_ffi: ^2.3.6
   
 
 dev_dependencies:
