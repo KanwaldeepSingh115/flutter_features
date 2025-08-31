@@ -1,14 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_practice/API/get.dart';
-import 'package:flutter_practice/API/post.dart';
-import 'package:flutter_practice/BLOC/auth_ui.dart';
-import 'package:flutter_practice/BLOC/bloc.dart';
-import 'package:flutter_practice/BLOC/events.dart';
+import 'package:flutter_practice/revision/apidemo.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -219,7 +214,7 @@ class _MyAppState extends State<MyApp> {
       //   create: (_) => AuthBloc()..add(AppStarted()),
       //   child: AuthUi(),
       // ),
-      home: ReqResPostDemo(),
+      home: ApiDemo(),
     );
   }
 }

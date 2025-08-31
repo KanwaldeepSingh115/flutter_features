@@ -44,7 +44,7 @@ dependencies:
   path: ^1.9.1
   mime: ^2.0.0
   cloudinary_public: ^0.23.1
-  image_picker: ^1.1.2
+  image_picker: ^1.2.0
   http_parser: ^4.1.2
   firebase_database: ^11.3.10
   fluttertoast: ^8.2.12
@@ -61,6 +61,9 @@ dependencies:
   flutter_bloc: ^9.1.1
   audio_service: ^0.18.18
   sqflite_common_ffi: ^2.3.6
+  url_launcher: ^6.3.2
+  smooth_page_indicator: ^1.2.1
+  
   
 
 dev_dependencies:
