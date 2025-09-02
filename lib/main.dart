@@ -3,7 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_practice/revision/apidemo.dart';
+import 'package:flutter_practice/Chatbot-Gemini/chat_screen.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -214,7 +214,8 @@ class _MyAppState extends State<MyApp> {
       //   create: (_) => AuthBloc()..add(AppStarted()),
       //   child: AuthUi(),
       // ),
-      home: ApiDemo(),
+      home: Chatbot(),
+      //home: LottieSample(),
     );
   }
 }
