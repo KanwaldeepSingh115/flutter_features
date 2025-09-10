@@ -1,11 +1,9 @@
-import 'dart:async';
-
 import 'package:battery_plus/battery_plus.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:flutter_practice/EventHandling/screenonoff_service.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
-import 'package:screen_state/screen_state.dart';
 import 'package:sensors_plus/sensors_plus.dart';
 
 class Events extends StatefulWidget {
@@ -18,8 +16,7 @@ class Events extends StatefulWidget {
 class _EventsState extends State<Events> with WidgetsBindingObserver {
   final Battery _battery = Battery();
   final Connectivity _connectivity = Connectivity();
-  Screen _screen = Screen();
-  late StreamSubscription<ScreenStateEvent> _subscription;
+  DateTime? lastScreenOffTime;
 
   String batteryStatus = 'Battery Status Unknown';
   String networkStatus = 'Network Status Unknown';
@@ -30,27 +27,6 @@ class _EventsState extends State<Events> with WidgetsBindingObserver {
   String batteryLevelStatus = 'Battery Level Unknown';
   String screenStatus = 'Screen Status Unknown';
   String internetStatus = 'Interenet Status Unknown';
-
-  void onData(ScreenStateEvent event) {
-    setState(() {
-      if (event == ScreenStateEvent.SCREEN_ON) {
-        screenStatus = "Screen: ON";
-      } else if (event == ScreenStateEvent.SCREEN_OFF) {
-        screenStatus = "Screen: OFF";
-      } else {
-        screenStatus = "Screen: UNKNOWN";
-      }
-    });
-  }
-
-  void startListening() {
-    _screen = Screen();
-    try {
-      _subscription = _screen.screenStateStream.listen(onData);
-    } catch (exception) {
-      debugPrint("Screen state error: $exception");
-    }
-  }
 
   @override
   void initState() {
@@ -63,7 +39,24 @@ class _EventsState extends State<Events> with WidgetsBindingObserver {
     listenBluetooth();
     listenSensors();
     listenInternet();
-    startListening();
+
+    ScreenStateService.listen((state) {
+      setState(() {
+        if (state == "OFF") {
+          lastScreenOffTime = DateTime.now();
+          screenStatus = "Screen: OFF";
+        } else if (state == "ON") {
+          if (lastScreenOffTime != null) {
+            final diff = DateTime.now().difference(lastScreenOffTime!);
+            final minutes = diff.inMinutes;
+            final seconds = diff.inSeconds % 60;
+            screenStatus = "Screen: ON (was OFF for ${minutes}m ${seconds}s)";
+          } else {
+            screenStatus = "Screen: ON";
+          }
+        }
+      });
+    });
   }
 
   void listenInternet() {
@@ -142,8 +135,6 @@ class _EventsState extends State<Events> with WidgetsBindingObserver {
       keyboardStatus = isKeyboardOpen ? "Keyboard: Open" : "Keyboard: Closed";
     });
   }
-
-  void listenScreenStatus() {}
 
   @override
   Widget build(BuildContext context) {
