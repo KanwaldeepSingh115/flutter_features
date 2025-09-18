@@ -3,24 +3,22 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class GeminiService {
-  final String apiKey = 'PASTE_YOUR_API_KEY_HERE';
-  final String baseUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
+  final String apiKey = 'AIzaSyBQrP75J6qmdApbtB_lvL421R17i7b6zec';
+  final String baseUrl =
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
   Future<String> generateText(String prompt) async {
     final response = await http.post(
-      Uri.parse("$baseUrl"),
-      headers: {
-        "Content-Type": "application/json",
-        "X-goog-api-key": apiKey
-      },
+      Uri.parse(baseUrl),
+      headers: {"Content-Type": "application/json", "X-goog-api-key": apiKey},
       body: jsonEncode({
         "contents": [
           {
             "parts": [
-              {"text": prompt}
-            ]
-          }
-        ]
+              {"text": prompt},
+            ],
+          },
+        ],
       }),
     );
 
@@ -32,5 +30,3 @@ class GeminiService {
     }
   }
 }
-
-
