@@ -18,6 +18,20 @@
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    android:maxSdkVersion="29" />
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
+
+    
+
+
+
 
 
 
@@ -75,13 +89,12 @@
                 android:value="com.google.firebase.components.ComponentRegistrar" />
         </service>
 
-        <service
+        <!-- Screen On/Off -->
+        <!-- <service
             android:name=".ScreenService"
             android:enabled="true"
             android:exported="false"
-            android:foregroundServiceType="specialUse" />
-
-
+            android:foregroundServiceType="specialUse" /> -->
 
 
         
@@ -90,6 +103,14 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        <!-- For Google Mobile Ads  -->
+        <!-- <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="ca-app-pub-3940256099942544~3347511713"/> -->
+
+        <!-- For Foreground Service -->
+        <!-- <meta-data android:name="com.google.firebase.messaging.default_notification_channel_id" android:value="my_foreground"/>
+        <service android:name="id.flutter.flutter_background_service.BackgroundService" android:foregroundServiceType="dataSync" android:exported="true" android:stopWithTask="false"/> -->
+
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and
