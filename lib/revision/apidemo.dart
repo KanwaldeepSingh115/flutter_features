@@ -18,13 +18,13 @@ class _ApiDemoState extends State<ApiDemo> {
   final PageController _pageController = PageController(viewportFraction: 0.9);
   int _currentPage = 0;
   Timer? _autoSwipeTimer;
-  bool _isPaused = false; 
-  double _seeAgainOpacity = 0.0; 
-  
+  bool _isPaused = false;
+  double _seeAgainOpacity = 0.0;
+
   Future<NewsApiModel> fetchPosts() async {
     final response = await http.get(
       Uri.parse(
-        'https://newsapi.org/v2/everything?q=fitness&from=2025-07-31&language=en&sortBy=publishedAt&apiKey=dd0541af3edc46d7add05e5ba3e11162',
+        'https://newsapi.org/v2/everything?q=fitness&from=2025-08-05&language=en&sortBy=publishedAt&apiKey=dd0541af3edc46d7add05e5ba3e11162',
       ),
     );
 
@@ -57,11 +57,10 @@ class _ApiDemoState extends State<ApiDemo> {
       if (_pageController.hasClients && itemCount > 0 && !_isPaused) {
         int nextPage = _currentPage + 1;
 
-
         if (nextPage >= itemCount) {
           setState(() {
             _isPaused = true;
-            _seeAgainOpacity = 1.0; 
+            _seeAgainOpacity = 1.0;
           });
           _autoSwipeTimer?.cancel();
           return;
@@ -118,8 +117,7 @@ class _ApiDemoState extends State<ApiDemo> {
                         _currentPage = index;
                         if (index == articles.length - 1) {
                           _isPaused = true;
-                          _seeAgainOpacity =
-                              1.0; 
+                          _seeAgainOpacity = 1.0;
                         }
                       });
                     },
@@ -278,13 +276,13 @@ class _ApiDemoState extends State<ApiDemo> {
                             );
                           },
                           effect: ScrollingDotsEffect(
-                            maxVisibleDots: 7, 
+                            maxVisibleDots: 7,
                             activeDotColor: Colors.redAccent,
                             dotColor: Colors.grey,
                             dotHeight: 8,
                             dotWidth: 8,
                             spacing: 6,
-                            fixedCenter: true, 
+                            fixedCenter: true,
                           ),
                         ),
 
@@ -293,9 +291,7 @@ class _ApiDemoState extends State<ApiDemo> {
                           const SizedBox(width: 8),
                           AnimatedOpacity(
                             opacity: _seeAgainOpacity,
-                            duration: const Duration(
-                              milliseconds: 400,
-                            ),
+                            duration: const Duration(milliseconds: 400),
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.redAccent,
@@ -310,10 +306,9 @@ class _ApiDemoState extends State<ApiDemo> {
                               ),
                               onPressed: () async {
                                 setState(() {
-                                  _seeAgainOpacity = 0.0; 
+                                  _seeAgainOpacity = 0.0;
                                   _isPaused = false;
-                                  _currentPage =
-                                      -1; 
+                                  _currentPage = -1;
                                 });
 
                                 _startAutoSwipe(totalDots);

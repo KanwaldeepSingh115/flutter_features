@@ -12,14 +12,14 @@ class ReqResGetDemo extends StatefulWidget {
 }
 
 class _ReqResGetDemoState extends State<ReqResGetDemo> {
-  late Future<GetModel> futurePosts;
+  late Future<DemoApiModel2> futurePosts;
 
-  Future<GetModel> fetchPosts() async {
+  Future<DemoApiModel2> fetchPosts() async {
     final response = await http.get(Uri.parse('https://reqres.in/api/users/2'));
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> json = jsonDecode(response.body);
-      return GetModel.fromJson(json);
+      return DemoApiModel2.fromJson(json);
     } else {
       throw Exception('Failed to load posts');
     }

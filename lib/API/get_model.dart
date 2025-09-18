@@ -35,14 +35,14 @@ class SupportModel {
   }
 }
 
-class GetModel {
+class DemoApiModel2 {
   final DataModel mydata;
   final SupportModel support;
 
-  GetModel({required this.mydata, required this.support});
+  DemoApiModel2({required this.mydata, required this.support});
 
-  factory GetModel.fromJson(Map<String, dynamic> json) {
-    return GetModel(
+  factory DemoApiModel2.fromJson(Map<String, dynamic> json) {
+    return DemoApiModel2(
       mydata: DataModel.fromJson(json['data']),
       support: SupportModel.fromJson(json['support']),
     );
