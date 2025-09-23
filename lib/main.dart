@@ -3,6 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_practice/BarcodeScanner/barcode_scanner.dart';
 import 'package:flutter_practice/ForegroundServices/foreground_service.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -41,6 +42,8 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
+  await requestCameraPermission();
 
   //For Foreground Services
   // await initializeService();
@@ -217,7 +220,7 @@ class _MyAppState extends State<MyApp> {
       //   create: (_) => AuthBloc()..add(AppStarted()),
       //   child: AuthUi(),
       // ),
-      home: ForegroundServiceDemo(),
+      home: BarcodeScanner(),
     );
   }
 }

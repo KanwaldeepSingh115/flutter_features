@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.flutter_practice">
 
-    
+    <!-- <uses-feature android:name="android.hardware.camera" android:required="true"> -->
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
@@ -27,13 +27,8 @@
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
-
+    <uses-permission android:name="android.permission.CAMERA"/>
     
-
-
-
-
-
 
 
     <application
