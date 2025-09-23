@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class GeminiService {
-  final String apiKey = 'AIzaSyBQrP75J6qmdApbtB_lvL421R17i7b6zec';
+  final String apiKey = 'PASTE_YOUR_API_KEY_HERE';
   final String baseUrl =
       "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent";
 
