@@ -6,8 +6,8 @@ Packages used - permission_ handler/flutter_background_service/http
 
 Permissions and Tag Used in Manifest-
 
-POST_NOTIFICATIONS
-FOREGROUND_SERVICE
+POST_NOTIFICATIONS,
+FOREGROUND_SERVICE,
 FOREGROUND_SERVICE_DATA_SYNC
 
 <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
