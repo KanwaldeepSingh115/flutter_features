@@ -80,6 +80,7 @@ dependencies:
   google_mobile_ads: ^6.0.0
   mobile_scanner: ^7.0.1
   camera: ^0.11.2
+  flutter_zxing: ^2.2.1
   
   
 
