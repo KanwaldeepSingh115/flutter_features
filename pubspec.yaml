@@ -79,6 +79,7 @@ dependencies:
   flutter_background_service: ^5.1.0
   google_mobile_ads: ^6.0.0
   mobile_scanner: ^7.0.1
+  camera: ^0.11.2
   
   
 
