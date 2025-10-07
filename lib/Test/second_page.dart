@@ -2,10 +2,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_practice/Test/bannerad_test.dart';
+import 'package:flutter_practice/Test/home_page.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:lottie/lottie.dart';
-import 'package:test_services/Test/bannerad_test.dart';
-import 'package:test_services/Test/home_page.dart';
 
 class AdsSecondPage extends StatefulWidget {
   const AdsSecondPage({super.key});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practice/Test/bannerad_test.dart';
+import 'package:flutter_practice/Test/second_page.dart';
 import 'package:lottie/lottie.dart';
-import 'package:test_services/Test/bannerad_test.dart';
-import 'package:test_services/Test/second_page.dart';
 
 class AdsHomePage extends StatefulWidget {
   const AdsHomePage({super.key});
@@ -14,7 +14,7 @@ class _AdsHomePageState extends State<AdsHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Google Ads Test'),centerTitle: true,),
+      appBar: AppBar(title: Text('Google Ads Test'), centerTitle: true),
       body: Column(
         spacing: 10,
         children: [
@@ -34,7 +34,7 @@ class _AdsHomePageState extends State<AdsHomePage> {
                 MaterialPageRoute(builder: (context) => AdsSecondPage()),
               );
             },
-            icon: Icon(Icons.arrow_right_alt,size: 35,),
+            icon: Icon(Icons.arrow_right_alt, size: 35),
           ),
           Spacer(),
         ],
