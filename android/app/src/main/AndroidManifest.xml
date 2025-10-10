@@ -22,12 +22,19 @@
 
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-    android:maxSdkVersion="29" />
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+    android:maxSdkVersion="29" /> -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK"/>
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+    
+    <!-- Internal storage Access -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
     
 
 
@@ -38,7 +45,7 @@
 
         <meta-data
         android:name="com.google.android.geo.API_KEY"
-        android:value="PASTE_API_KEY_HERE"/>
+        android:value="AIzaSyCEhCouXDHmWPzMOPSynveTvyDk0gzVrUQ"/>
 
 
         <activity
@@ -128,6 +135,20 @@
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.BROWSABLE" />
         <data android:scheme="https" />
+        </intent>
+
+        <intent>
+        <action android:name="android.intent.action.VIEW" />
+        <data android:scheme="sms" />
+    </intent>
+  <!-- If your app checks for call support -->
+        <intent>
+        <action android:name="android.intent.action.VIEW" />
+        <data android:scheme="tel" />
+        </intent>
+  <!-- If your application checks for inAppBrowserView launch mode support -->
+        <intent>
+        <action android:name="android.support.customtabs.action.CustomTabsService" />
         </intent>
 
 
