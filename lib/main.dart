@@ -1,10 +1,14 @@
+import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_practice/BarcodeScanner/barcode_scanner.dart';
-import 'package:flutter_practice/ForegroundServices/foreground_service.dart';
+import 'package:flutter_practice/Retrofit/example_file.dart';
+
+
+
+late List<CameraDescription> cameras;
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
@@ -43,7 +47,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
-  await requestCameraPermission();
+  // await requestCameraPermission();
+  cameras = await availableCameras();
 
   //For Foreground Services
   // await initializeService();
@@ -220,7 +225,7 @@ class _MyAppState extends State<MyApp> {
       //   create: (_) => AuthBloc()..add(AppStarted()),
       //   child: AuthUi(),
       // ),
-      home: BarcodeScanner(),
+      home: RetrofitExample(),
     );
   }
 }
